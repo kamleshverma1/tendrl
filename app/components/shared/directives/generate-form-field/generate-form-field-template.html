@@ -1,0 +1,26 @@
+<div class="col-sm-6">
+
+	<input type="text" class="form-control" name="{{generateFormField.fieldName}}" ng-if="generateFormField.attributeDetails.type === 'String'" ng-model="generateFormField.attributeDetails.value" required>
+
+	<input type="number" class="form-control" name="{{generateFormField.fieldName}}" ng-if="generateFormField.attributeDetails.type === 'Integer'" ng-model="generateFormField.attributeDetails.value" required>
+
+	<span ng-if="generateFormField.attributeDetails.type === 'Boolean'">
+		<form>
+			<input type="radio" id="yes_{{$id}}" class="" ng-model="generateFormField.attributeDetails.value" name="{{generateFormField.fieldName}}" value="true"><label for="yes_{{$id}}" class="radio-label">Yes</label>
+			<input type="radio" id="no_{{$id}}" class="radio-button-style" ng-model="generateFormField.attributeDetails.value" name="{{generateFormField.fieldName}}" value="false"><label for="no_{{$id}}" class="radio-label">No</label>
+		</form>
+	</span>
+
+	<span ng-if="generateFormField.attributeDetails.type === 'Brick[]'">
+		<select class="form-control" name="multipleSelect" id="multipleSelect" ng-model="generateFormField.attributeDetails.value" multiple required>
+	      <option ng-repeat="option in generateFormField.listOptions" value="{{option.value}}">
+	      	{{option.name}}
+	      </option>
+	    </select>
+	</span>
+	
+</div>
+
+
+
+
